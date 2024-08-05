@@ -114,3 +114,37 @@ edgetpu_compiler output_tflite_graph.tflite
 ```
 
 (repasar) Todo esto se encuentra en `${HOME}/ruta_carpetas_proyecto/tutorials/docker/object_detection/out/models` puede ser interesante moverlo a un lugar más cómodo con el comando `mv` (o no). Incluso lo interesante es hacerlo con github y poder ir de un lado a otro.
+
+
+
+
+# Install Docker on RPi4
+
+1. **Update your system**: Ensure that your system's package list and installed packages are up to date.
+   ```bash
+   sudo apt-get update
+   sudo apt-get upgrade
+   ```
+
+2. **Install Docker**: Use the following command to install Docker from the Raspberry Pi repositories.
+   ```bash
+   curl -fsSL https://get.docker.com -o get-docker.sh
+   sudo sh get-docker.sh
+   ```
+
+3. **Add your user to the Docker group**: By adding your user to the Docker group, you can execute Docker commands without needing to use `sudo`.
+   ```bash
+   sudo usermod -aG docker pi
+   ```
+
+4. **Reboot or log out/in**: For the group changes to take effect, you need to reboot or log out and back in.
+   ```bash
+   reboot
+   ```
+
+5. **Verify Docker installation**: After rebooting, you can check if Docker is correctly installed by running:
+   ```bash
+   docker --version
+   ```
+
+Parece que me falta el archivo aquel para que funcione edgetpu. Mirar readme de consums
