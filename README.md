@@ -147,4 +147,24 @@ edgetpu_compiler output_tflite_graph.tflite
    docker --version
    ```
 
+6. **Main commands**:
+    ```bash
+    docker build --platform linux/arm64 -t my_name_docker . # Build Docker
+    docker run -it my_name_docker # Run Docker
+    docker run -v $(pwd):/app -it my_name_docker # Run Docker with shared folder between host and Docker
+    ```
+
 Parece que me falta el archivo aquel para que funcione edgetpu. Mirar readme de consums
+
+(Dentro del contenedor NO HAY SUDO)
+```bash
+echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | tee /etc/apt/sources.list.d/coral-edgetpu.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+apt-get update
+apt-get install libedgetpu1-std
+```
+
+```bash
+wget https://github.com/feranick/libedgetpu/releases/download/v16.0TF2.15.1-1/libedgetpu1-std_16.0tf2.15.1-1.bookworm_arm64.deb
+sudo apt install ./libedgetpu1-std_16.0tf2.15.1-1.bookworm_arm64.deb
+```
